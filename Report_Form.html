@@ -8,24 +8,42 @@
 
 <body>
 <script>
-  function checkPass(){
-    var pass  = document.getElementById("password").value;
-    var rpass  = document.getElementById("c_password").value;
-   if(pass != rpass){
-       document.getElementById("submit").disabled = true;
-       $('.missmatch').html("Entered Password is not matching!! Try Again");
-   }else{
-       $('.missmatch').html("");
-       document.getElementById("submit").disabled = false;
-   }
-}
+  <script>
+   // Function to check Whether both passwords
+            // is same or not.
+            function checkPassword(form) {
+                password1 = form.password.value;
+                password2 = form.c_password.value;
+  
+                // If password not entered
+                if (password1 == '')
+                    alert ("Please enter Password");
+                      
+                // If confirm password not entered
+                else if (password2 == '')
+                    alert ("Please enter confirm password");
+                      
+                // If Not same return False.    
+                else if (password1 != password2) {
+                    alert ("\nPassword did not match: Please try again...")
+                    return false;
+                }
+  
+                // If same return True.
+                else{
+                    alert("Data filled successfully!")
+                    return true;
+                }
+            }
+
+  </script>
 
   </script>
 
 
 <div id="content">
   <section class="fullcover">
-  <form method="POST" action="./Report_Form.php" enctype="multipart/form-data">
+  <form method="POST" action="./Report_Form.php" enctype="multipart/form-data" onSubmit = "return checkPassword(this)">
   <header>
       <h1 class="heading">
         REPORT ANTI SOCIAL ACTIVITY
